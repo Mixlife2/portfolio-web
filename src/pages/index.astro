@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+import PricingCard from '../components/PricingCard.astro';
+
+const plans = [
+  {
+    title: 'Sitio No-code',
+    price: 700,
+    features: ['Desarrollado con Webflow/Wix', 'SEO básico', 'Entrega en 5 días'],
+    link: 'https://ejemplo-nocode.com'
+  },
+  {
+    title: 'Sitio MERN Básico',
+    price: 1200,
+    features: ['Frontend React', 'Backend Node', 'Base Mongo', 'Login/registro'],
+    link: 'https://ejemplo-mern.com'
+  },
+  {
+    title: 'E-commerce MERN',
+    price: 2000,
+    features: ['Todo lo anterior + pasarela de pago', 'Panel Admin', 'Carrito de compras'],
+    link: 'https://ejemplo-ecommerce.com'
+  }
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Portfolio de Desarrollo Web</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body class="bg-gradient-to-br from-gray-100 via-white to-gray-200 text-gray-900 min-h-screen">
+    <header class="text-center py-10">
+		<h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
+		  Desarrollo Web a Medida
+		</h1>
+		<p class="text-lg text-gray-600 mt-2">No-code y Full Stack (MERN)</p>
+	  </header>	  
+
+	  <main class="max-w-6xl mx-auto px-4 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      {plans.map((plan) => (
+        <PricingCard {...plan} />
+      ))}
+    </main>
+
+    <footer class="text-center py-10 text-sm text-gray-500 border-t mt-10">
+		© {new Date().getFullYear()} - Tu nombre o marca
+	  </footer>
+	  
+  </body>
+</html>
+
+<style>
+header, footer {
+  text-align: center;
+  padding: 2rem;
+}
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+</style>
