@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    id: 1,
+    title: 'Tienda Online EcoProductos',
+    description: 'E-commerce personalizado para productos ecológicos con pasarela de pagos y panel administrativo.',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+    url: '#'
+  },
+  {
+    id: 2,
+    title: 'Landing Page Creativa',
+    description: 'Landing page moderna y optimizada para campañas digitales con diseño responsive.',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80',
+    url: '#'
+  },
+  {
+    id: 3,
+    title: 'App de Gestión Interna',
+    description: 'Aplicación web full stack para gestión y administración interna de empresas.',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80',
+    url: '#'
+  }
+];
+---
+
+<BaseLayout title="Proyectos">
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <h1 class="text-4xl font-bold mb-10 text-center">Nuestros proyectos</h1>
+
+    <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-10">
+      {projects.map(({ id, title, description, image, url }) => (
+        <article class="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition flex flex-col">
+          <img src={image} alt={title} class="w-full h-48 object-cover" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h2 class="text-2xl font-semibold mb-3 text-indigo-700">{title}</h2>
+            <p class="text-gray-700 mb-6 flex-grow">{description}</p>
+            <a href={url} class="mt-auto inline-block bg-indigo-600 text-white text-center py-2 px-4 rounded hover:bg-indigo-700 transition">
+              Ver más
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

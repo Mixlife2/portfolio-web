@@ -1,0 +1,20 @@
+---
+// src/layouts/BaseLayout.astro
+const { title = "Portfolio" } = Astro.props;
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+---
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <NavBar />
+    <main>
+      <slot /> <!-- ✅ ESTA ES LA CLAVE -->
+    </main>
+    <Footer />
+  </body>
+</html>
